@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tian.crud.dao.AdminMapper">
+	<resultMap type="com.tian.crud.bean.Admin" id="BaseResultMap">
+		<id property="adminId" jdbcType="INTEGER" column="admin_id" />
+		<result property="adminName" jdbcType="VARCHAR" column="admin_name" />
+		<result property="adminPassword" jdbcType="VARCHAR" column="admin_password" />
+	</resultMap>
+	
+	<select id="queryByAdmin" resultType="int" parameterType="com.tian.crud.bean.Admin">
+		select count(*) from tbl_admin where admin_name = #{adminName} and admin_password = #{adminPassword}
+	</select>
+	
+	
+</mapper>
